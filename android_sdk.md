@@ -72,7 +72,7 @@ SensoroDeviceListener 用于回调通知发现设备，设备消息，和设备�
 
 ## 例子代码
 
-[Github 代码](https://github.com/yangzhiqiang/SensoroSensorDemo)
+[Github 代码](https://github.com/fangchenxuan/sensoroDemo)
 
 包括 eclipse 和Android studio 两个版本。
 
