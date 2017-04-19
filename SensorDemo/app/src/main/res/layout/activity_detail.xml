@@ -20,7 +20,16 @@
             android:text="@string/device_detail"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
-
+        <TextView
+            android:id="@+id/detail_right_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="测试"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

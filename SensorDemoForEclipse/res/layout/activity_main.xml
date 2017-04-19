@@ -18,8 +18,8 @@
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:layout_marginLeft="10dp"
-            android:text="@string/start"
-            android:textColor="@android:color/black"
+            android:text="筛选"
+
             android:textSize="16sp" />
         <TextView
             android:id="@+id/main_title"

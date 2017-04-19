@@ -18,7 +18,7 @@
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:layout_marginLeft="10dp"
-            android:text="@string/start"
+            android:text="筛选"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="16sp" />
         <TextView

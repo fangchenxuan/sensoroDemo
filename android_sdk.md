@@ -51,22 +51,40 @@ Eclipse配置
 说明：SensoroDeviceManager 是传感器设备管理类，负责处理发现设备和设备消失以及设备信息更新功能，该类是单例类，可通过getInstance方法获得该对象
 SensoroDeviceListener 用于回调通知发现设备，设备消息，和设备更新
 
+###4. 透传实现
+1.启动任务
 
-###6. 传感器设备对象说明
+        SensoroDevice sensoroDevice = this.getIntent().getParcelableExtra("sensoroDevice");        sensoroDeviceSession = new SensoroDeviceSession(this, sensoroDevice);        sensoroDeviceSession.startSession("password", new SensoroDeviceSession.ConnectionCallback() {            @Override            public void onConnectFailed(int i) {//连接传感器失败                            }            @Override            public void onConnectSuccess() {//连接传感器成功            }            @Override            public void onNotify(byte[] bytes) {//数据透传回调            }        });
+2.写入数据
+
+        byte []data = SensoroUtils.HexString2Bytes(str);        if (sensoroDeviceSession != null) {            sensoroDeviceSession.write(data, new 
+            SensoroDeviceSession.WriteCallback() {                @Override                public void onWriteSuccess() {//数据写入成功                                    }                @Override                public void onWriteFailure(int i) {//数据写入失败                }            });        }
+        
+###5. 传感器设备对象说明
 说明：SensoroDevice 为传感器设备对象，以下为对象属性
 
      serialNumber ---String; // SN
      macAddress---String; // MAC
-     hardwareVersion----String;//硬件版本号
-     firmwareVersion-----String;//固件版本号
-     batteryLevel-----int;// 剩余电量
-     temperature---float;// 温度
-     light----float; // 光线照度
-     humidity---int;//湿度
-     accelerometerCount---int; // 加速度计数器
+     hardwareVersion---String;//硬件版本号
+     firmwareVersion---String;//固件版本号
+     batteryLevel---Integer;// 剩余电量
+     temperature---Float;// 温度
+     light----Float; // 光线照度
+     humidity---Integer;//湿度
+     accelerometerCount---Integer; // 加速度计数器
      rssi---int;
      customize----byte[];//自定义数据
-		
+     drip---Integer;//滴漏
+     co---Float;//一氧化碳
+     co2---Float;//二氧化碳
+     no2---Float;//二氧化氮
+     methane---Float;//甲烷
+     lpg---Float;液化石油气
+     pm1---Float;
+     pm25---Float;//PM2.5
+     pm10---Float;
+     coverstatus---Integer;//井盖状态
+     level---Float;//液位
 
 
 
@@ -80,6 +98,7 @@ SensoroDeviceListener 用于回调通知发现设备，设备消息，和设备�
 日期 | 版本 | 修订人 | 内容
 ---|---|---|---
 2016-07-27|1.0|Will | 初始内容
+2017-04-19|1.2|Will | 增加透传功能说明，及传感器支持
 
 
 

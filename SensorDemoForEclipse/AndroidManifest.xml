@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailActivity"></activity>
+                <activity android:name=".WriteActivity"></activity>
         <service android:name="com.sensoro.sensor.kit.SensoroDeviceService"></service>
         <service android:name="com.sensoro.sensor.kit.IntentProcessorService"></service>
     </application>
